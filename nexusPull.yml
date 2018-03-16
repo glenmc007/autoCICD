@@ -1,0 +1,13 @@
+
+---
+- hosts: webAppServerGroup
+  become: true  
+  tasks:
+  - name: Deploy to tomcat 
+    maven_artifact:
+      group_id: maven_Pilot
+      artifact_id: v0.0
+      version: 1.0-SNAPSHOT
+      extension: war
+      repository_url: http://192.168.0.91:8081/nexus/repository/repo1/
+      dest: /usr/share/tomcat/webapps/project1.war
