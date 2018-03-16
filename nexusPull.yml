@@ -11,3 +11,9 @@
       extension: war
       repository_url: http://192.168.0.91:8081/nexus/repository/repo1/
       dest: /usr/share/tomcat/webapps/project1.war
+      notify: tomcat_restart
+      
+  handlers:
+    - name: tomcat_restart
+      service: name=tomcat state=started
+      
