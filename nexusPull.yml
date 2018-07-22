@@ -1,16 +1,15 @@
-
 ---
 - hosts: webAppServerGroup
   become: true  
   tasks:
-  - name: Deploy to tomcat 
+  - name: Deploy app on tomcat 
     maven_artifact:
-      group_id: maven_Pilot
+      group_id: mvn_group
       artifact_id: v0.0
       version: 1.0-SNAPSHOT
       extension: war
-      repository_url: http://192.168.0.91:8081/nexus/repository/repo1/
-      dest: /usr/share/tomcat/webapps/project1.war
+      repository_url: http://192.168.0.91:8081/nexus/repository/pipeline0/
+      dest: /usr/share/tomcat/webapps/pilot_porj_0.war
     notify: tomcat_restart
       
   handlers:
