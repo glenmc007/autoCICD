@@ -1,6 +1,6 @@
 ---
 - hosts: webAppServerGroup
-  become: true #become: true
+  become: false #become: true
   tasks:
   - name: Deploy app on tomcat 
     maven_artifact:
